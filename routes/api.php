@@ -7,6 +7,9 @@ use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,5 +40,6 @@ Route::get('/index',[AuthController::class,'index']);
 Route::resource('employees', EmployeeController::class);
 Route::resource('student',StudentController::class);
 
+Route::post('/post', [PostController::class, 'store']);
 
-// Route:resource('/employees',[EmployeeController::class,'employees']);
+
