@@ -17,7 +17,8 @@ class FormController extends Controller
     public function store(Request $request){
 
     }
-    public function delete(){
+    public function delete($id){
+        // $employee ->delete();
 
     }
 }
