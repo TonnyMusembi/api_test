@@ -75,6 +75,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!2){
+            return response()->json([
+
+                
+            ]);
+
+        }
         //
     }
 
