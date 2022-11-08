@@ -93,7 +93,17 @@ class SaleController extends Controller
      */
     public function update(Request $request, Sale $sale)
     {
-        //
+
+        $validator = Validator::make($request->all(),[
+            'sales_id' => 'required',
+            'name' => 'required',
+            'price' => 'regex:pattern'
+        ]);
+       if ($validator->fails()){
+        return response()->json(
+            $validator->errors()
+        );
+       }
     }
 
     /**

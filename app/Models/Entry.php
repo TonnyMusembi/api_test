@@ -14,4 +14,7 @@ class Entry extends Model
         'type'
 
     ];
+    public function sales(){
+        
+    }
 }
