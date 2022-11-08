@@ -32,7 +32,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.show');
     }
 
     /**
@@ -95,14 +95,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (!2){
-            return response()->json([
-                'message' => ''
+        $validator = Validator::make($request->all(),[
+            'id' => 'required',
+            'name' => 'required',
+            'course' => 'required'
 
-
-            ]);
-
+        ]);
+        if($validator->fails()){
+            return response()->json(
+                $validator->errors());
         }
+
+
         //
     }
 

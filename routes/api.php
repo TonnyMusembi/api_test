@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EntryController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +40,9 @@ Route::get('/index',[AuthController::class,'index']);
 // Route::get('/employee',[EmployeeController::class,'employee']);
 Route::resource('employees', EmployeeController::class);
 Route::resource('student',StudentController::class);
+Route::resource('entries',EntryController::class);
 
 Route::post('/post', [PostController::class, 'store']);
+
 
 
