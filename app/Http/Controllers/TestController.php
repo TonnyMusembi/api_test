@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use App\Models\Test;
 use Illuminate\Http\Request;
 
@@ -39,7 +40,21 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'test_id' => 'required',
+            'status' => 'required',
+            'name' => 'required'
+        ]);
+        if ($validator->fails()){
+            return response()->json(
+                $validator->errors()
+            );
+        }
+        $test =Test::create([
+            'test_id'=> $request->test_id,
+            'status' => $request->status,
+            'name' => $request->name
+        ]);
     }
 
     /**
