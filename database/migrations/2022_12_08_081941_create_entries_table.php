@@ -15,7 +15,7 @@ class CreateEntriesTable extends Migration
     {
         Schema::create('entries', function (Blueprint $table) {
             $table->integerIncrements('entry_id');
-            $table->string('status');
+            $table->string('status')->unique();
             $table->string('type');
             $table->timestamps();
         });
