@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +47,6 @@ Route::resource('sales',SaleController::class);
 
 // Route::post('/post', [PostController::class, 'store']);
 Route::resource('posts',PostController::class);
+Route::resource('tests',TestController::class);
 
 
