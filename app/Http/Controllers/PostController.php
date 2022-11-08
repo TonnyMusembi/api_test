@@ -16,8 +16,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+     $posts = Post::latest()->paginate(10);
+     return response()->json([
+        'message' => 'selected successfully',
+        'data' => $posts
+     ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -44,10 +49,17 @@ class PostController extends Controller
             'status' => 'required',
             'type' => 'required'
         ]);
-        if ($validator ){
-            
-
+        if ($validator->fails()){
+            return response()->json(
+                $validator->errors()
+             );
         }
+        $posts =Post::create([
+            'id' =>$request->id,
+            'name' => $request->name,
+            'status' =>$request->status,
+            'type' => $request->type
+        ]);
 
 
     }

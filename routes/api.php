@@ -44,7 +44,7 @@ Route::resource('student',StudentController::class);
 Route::resource('entries',EntryController::class);
 Route::resource('sales',SaleController::class);
 
-Route::post('/post', [PostController::class, 'store']);
-
+// Route::post('/post', [PostController::class, 'store']);
+Route::resource('posts',PostController::class);
 
 
