@@ -11,10 +11,8 @@ class Entry extends Model
     protected $fillable = [
         'entry_id',
         'status',
-        'type'
-
-    ];
+        'type' ];
     public function sales(){
-        
+
     }
 }
