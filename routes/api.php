@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ Route::get('/index',[AuthController::class,'index']);
 Route::resource('employees', EmployeeController::class);
 Route::resource('student',StudentController::class);
 Route::resource('entries',EntryController::class);
+Route::resource('sales',SaleController::class);
 
 Route::post('/post', [PostController::class, 'store']);
 

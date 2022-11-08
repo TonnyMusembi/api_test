@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Sale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class SaleController extends Controller
 {
@@ -14,7 +16,11 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sale::latest()->paginate(10);
+        return  response()->json([
+            'message' => 'selected successfully',
+            'data' => $sales
+        ]);
     }
 
     /**
@@ -35,7 +41,25 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'sales_id' => 'required',
+            'name' => 'required',
+            'price' => 'required'
+        ]);
+        if($validator->fails()){
+            return response()->json(
+                $validator->errors()
+            );
+        }
+        $sales =Sale::create([
+            'sales_id' => $request->sales_id,
+            'name' => $request->name,
+            'price' =>$request->price
+        ]);
+        return response()->json([
+            'message' => 'created successfully',
+            'status' => 200
+        ]);
     }
 
     /**
