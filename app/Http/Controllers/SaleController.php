@@ -102,8 +102,14 @@ class SaleController extends Controller
      * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sale $sale)
+    public function destroy(Sale $sale,$id)
     {
-        //
+     $sale->delete();
+     return response()->json([
+        'message' => 'deleted sucessfully',
+        'status' => 200
+     ]);
+
+
     }
 }
