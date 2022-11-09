@@ -88,7 +88,9 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        //
+        $validator = Validator::make($request->all(),[
+
+        ]);
     }
 
     /**
